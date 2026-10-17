@@ -1,6 +1,6 @@
-# Mahinova
+# mahinova
 
-Website for Mahinova, a software and mobile app development studio in India. *Ideas built into apps.*
+Website for mahinova, a software and mobile app development studio in India. *Ideas built into apps.*
 
 ## Website
 

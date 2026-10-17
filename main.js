@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function buildMessage() {
     var data = new FormData(form);
-    var lines = ['Hi Mahinova, I have a project enquiry.', ''];
+    var lines = ['Hi mahinova, I have a project enquiry.', ''];
     lines.push('Name: ' + data.get('name'));
     if (data.get('phone')) lines.push('Phone: ' + data.get('phone'));
     lines.push('Project: ' + data.get('project'));
