@@ -794,3 +794,13 @@ a:hover { color: var(--deep-purple); }
 
 .note-band { background: var(--lilac-mist); padding: 20px var(--gutter); text-align: center; font-size: 15px; color: var(--plum-slate); }
 .note-band p { margin: 0; }
+/* Catalogue */
+.case-shots { display: grid; grid-template-columns: minmax(0, 0.55fr) minmax(0, 1.45fr); gap: 24px; align-items: center; padding: 32px; border-radius: 24px; background: var(--deep-purple); }
+.case-shots .frame-phone { max-width: 280px; margin: 0 auto; }
+.case-side { display: grid; gap: 20px; }
+.case-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px; margin-top: 32px; }
+.case-facts h3 { margin: 0 0 8px; }
+.case-facts p { margin: 0; color: var(--plum-slate); line-height: 1.6; }
+.case-note { margin: 16px 0 0; font-size: 14px; color: var(--plum-slate); }
+@media (max-width: 760px) { .case-shots { grid-template-columns: 1fr; padding: 20px; } }
+.card .checklist { margin-top: 16px; }
