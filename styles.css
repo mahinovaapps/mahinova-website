@@ -743,3 +743,54 @@ a:hover { color: var(--deep-purple); }
 @media (min-width: 901px) {
   .shot-wide:last-child { grid-column: 4 / span 6; }
 }
+/* Product page */
+.product-hero { background: var(--deep-purple); padding: 56px var(--gutter) 88px; overflow: hidden; }
+.product-hero-body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 40px 56px; align-items: center; }
+.product-hero-copy h1 { margin: 16px 0 0; font-size: clamp(38px, 5.2vw, 64px); line-height: 1.05; letter-spacing: -0.03em; color: var(--white); }
+.product-hero-copy .eyebrow { color: var(--nova-gold); }
+.product-hero-art { position: relative; display: flex; justify-content: center; min-height: 480px; }
+.art-glow { position: absolute; width: 380px; height: 380px; right: 8%; top: 6%; border-radius: 50%; background: var(--nova-purple); opacity: 0.55; filter: blur(2px); }
+.art-glow::after { content: ""; position: absolute; inset: -46px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.12); }
+.phone { position: relative; width: min(290px, 70%); border-radius: 40px; padding: 10px; background: #0E0720; border: 2px solid rgba(255, 255, 255, 0.18); box-shadow: 0 32px 70px rgba(0, 0, 0, 0.45); overflow: hidden; align-self: center; }
+.phone img { display: block; width: 100%; height: auto; border-radius: 30px; max-height: 520px; object-fit: cover; object-position: top; }
+.float-card { position: absolute; left: -2%; bottom: 4%; width: min(330px, 62%); border-radius: 14px; overflow: hidden; background: var(--white); box-shadow: 0 24px 56px rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.2); }
+.float-card img { display: block; width: 100%; height: auto; }
+@media (max-width: 900px) {
+  .product-hero-body { grid-template-columns: 1fr; }
+  .product-hero-art { min-height: 440px; }
+  .float-card { left: 0; bottom: 0; width: min(300px, 70%); }
+  .art-glow { right: 12%; }
+}
+@media (max-width: 480px) {
+  .product-hero-art { min-height: 380px; }
+  .phone { width: 62%; margin-left: auto; margin-right: 6%; }
+  .float-card { width: 66%; }
+}
+
+.strip { background: var(--lilac-mist); padding: 28px var(--gutter); border-bottom: 1px solid var(--line); }
+.strip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px 24px; }
+.strip-item { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 15px; line-height: 1.35; }
+.strip-item .ico { width: 28px; height: 28px; flex: none; fill: none; stroke: var(--nova-purple); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.showcase { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 40px 64px; align-items: center; }
+.showcase-flip { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+.showcase-text h2 { margin: 8px 0 0; font-size: clamp(28px, 3.4vw, 40px); }
+.showcase-text .checklist { margin-top: 24px; }
+@media (max-width: 860px) {
+  .showcase, .showcase-flip { grid-template-columns: 1fr; }
+  .showcase-flip .media { order: 2; }
+}
+.media { display: flex; justify-content: center; }
+.frame { background: var(--white); border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 28px 60px rgba(30, 16, 56, 0.16); overflow: hidden; width: 100%; }
+.frame img { display: block; width: 100%; height: auto; }
+.frame-bar { display: flex; gap: 6px; padding: 12px 14px; background: #F0EBFA; border-bottom: 1px solid var(--line); }
+.frame-bar span { width: 10px; height: 10px; border-radius: 50%; background: #CFC4EA; }
+.frame-phone { max-width: 300px; border-radius: 34px; padding: 10px; background: #0E0720; border-color: rgba(255, 255, 255, 0.18); }
+.frame-phone img { border-radius: 26px; }
+
+.pills { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px; margin: 32px 0 0; padding: 0; list-style: none; }
+.pills li { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 16px; background: var(--lilac-mist); font-weight: 500; line-height: 1.4; }
+.pills .ico { width: 26px; height: 26px; flex: none; fill: none; stroke: var(--nova-purple); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.note-band { background: var(--lilac-mist); padding: 20px var(--gutter); text-align: center; font-size: 15px; color: var(--plum-slate); }
+.note-band p { margin: 0; }
