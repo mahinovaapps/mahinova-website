@@ -232,6 +232,8 @@ a:hover { color: var(--deep-purple); }
   margin: 0 auto;
 }
 .hero-art svg { display: block; width: 100%; height: auto; }
+/* Phones: keep the decoration small so the next section shows sooner. */
+@media (max-width: 600px) { .hero-art { max-width: 190px; margin-top: 8px; } }
 .orbit {
   transform-origin: 200px 200px;
   animation: orbit 24s linear infinite;
