@@ -283,9 +283,10 @@ a:hover { color: var(--deep-purple); }
 /* Phones: the orbit moves behind the text, peeking in from the top right,
    so it stays part of the hero without pushing the content down. */
 @media (max-width: 600px) {
+  .hero-art { max-width: 190px; margin-top: 8px; }
   .hero { position: relative; }
   .hero-copy { position: relative; z-index: 1; }
-  .hero-art {
+  .hero .hero-art {
     position: absolute;
     top: -120px;
     right: -175px;
