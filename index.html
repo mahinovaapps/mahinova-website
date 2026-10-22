@@ -14,6 +14,9 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mahinova.in/">
   <meta property="og:image" content="https://mahinova.in/assets/og-cover.png">
+  <meta property="og:image:width" content="1211">
+  <meta property="og:image:height" content="681">
+  <meta name="twitter:image" content="https://mahinova.in/assets/og-cover.png">
   <meta property="og:site_name" content="mahinova">
   <meta property="og:locale" content="en_IN">
   <meta property="og:image:alt" content="mahinova. Ideas built into apps.">
@@ -41,9 +44,20 @@
       "@type": "PostalAddress",
       "addressLocality": "Palashipara",
       "addressRegion": "West Bengal",
+      "streetAddress": "Palashipara, Nadia",
       "addressCountry": "IN"
     },
-    "areaServed": "IN"
+    "areaServed": "IN",
+    "knowsLanguage": ["en", "bn"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile app development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom software and SaaS" } }
+      ]
+    }
   }
   </script>
   <script type="application/ld+json">
@@ -52,7 +66,8 @@
     "@type": "WebSite",
     "name": "mahinova",
     "url": "https://mahinova.in/",
-    "inLanguage": "en-IN"
+    "inLanguage": "en-IN",
+    "publisher": { "@type": "Organization", "name": "mahinova", "url": "https://mahinova.in/", "logo": "https://mahinova.in/assets/icon-512.png" }
   }
   </script>
 </head>
