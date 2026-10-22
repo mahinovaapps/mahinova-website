@@ -1,6 +1,17 @@
 document.documentElement.classList.add('js');
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Mobile menu
+  var toggle = document.querySelector('.menu-toggle');
+  var nav = document.getElementById('site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+  }
+
   // Enquiry form: there is no server, so the form opens WhatsApp or email
   // with the details already written in.
   var form = document.getElementById('enquiry-form');

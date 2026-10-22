@@ -154,6 +154,19 @@ a:hover { color: var(--deep-purple); }
 .nav a:not(.btn):hover { color: var(--white); }
 .nav a[aria-current="page"] { color: var(--white); border-bottom-color: var(--nova-gold); }
 
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--outline);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+}
+.menu-toggle svg { width: 24px; height: 24px; }
 
 .lang-switch { display: flex; gap: 8px; order: 3; }
 .lang-switch a {
@@ -186,40 +199,63 @@ a:hover { color: var(--deep-purple); }
   .lang-switch a[lang] { font-size: 13px; }
 }
 
-/* Below 1100px the menu becomes a row of buttons under the logo that scrolls
-   sideways, so every page link stays in sight. Products and Free tools come
-   first and are filled in, since they matter most. Home is left out: the logo
-   already goes there. */
+/* The menu folds away below 1100px: with the language buttons it no longer fits on one line. */
 @media (max-width: 1099px) {
-  .topbar { flex-wrap: wrap; column-gap: 8px; row-gap: 12px; }
-  .lang-switch { order: 1; margin-left: auto; }
-  .nav {
-    order: 4;
-    flex-basis: calc(100% + 2 * var(--gutter));
-    flex-wrap: nowrap;
-    gap: 8px;
-    margin: 0 calc(-1 * var(--gutter));
-    padding: 0 var(--gutter) 2px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
-    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+  .js .menu-toggle { display: inline-flex; }
+  .js .topbar { column-gap: 8px; }
+  .js .lang-switch { order: 1; margin-left: auto; }
+  .js .menu-toggle { order: 2; }
+  .js .nav { order: 4; }
+  .topbar { flex-wrap: wrap; }
+  .js .nav {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 0 12px;
   }
-  .nav::-webkit-scrollbar { display: none; }
-  .nav a, .nav a:not(.btn) {
-    flex: none;
-    min-height: 40px;
-    padding: 0 14px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 999px;
-    font-size: 15px;
-    white-space: nowrap;
+  .js .nav.open { display: flex; }
+  .js .nav a:not(.btn) { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .js .nav a[aria-current="page"] { color: var(--nova-gold); }
+  .js .nav .btn { margin-top: 12px; }
+  .nav { flex-wrap: wrap; }
+}
+
+/* Phones: an app style bar along the bottom with the most used pages. */
+.tabbar { display: none; }
+@media (max-width: 760px) {
+  body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+  body .wa-float { display: none; }
+  .tabbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 0 4px env(safe-area-inset-bottom);
+    background: var(--deep-purple);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
   }
-  .nav a[href$="index.html"] { display: none; }
-  .nav a[href$="products.html"], .nav a[href*="tools.mahinova.in"] { order: -1; background: var(--nova-purple); border-color: var(--nova-purple); color: var(--white); font-weight: 600; }
-  .nav a[aria-current="page"] { border-color: var(--nova-gold); color: var(--nova-gold); }
-  .nav a[href$="products.html"][aria-current="page"] { border-color: var(--nova-gold); color: var(--white); }
-  .nav .btn { border-color: var(--nova-gold); margin-right: 16px; }
+  .tabbar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-height: 64px;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--on-dark);
+    text-decoration: none;
+  }
+  .tabbar svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .tabbar a[aria-current="page"] { color: var(--nova-gold); }
+  .tabbar .tab-wa svg { color: #25D366; }
 }
 
 /* Hero */

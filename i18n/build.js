@@ -126,7 +126,7 @@ function langLinks(code, p) {
 
 function addI18n(html, code, p) {
   html = html.replace(/(<link rel="canonical"[^>]*>)/, '$1' + head(code, p));
-  return html.replace(/(\n\s*<nav class="nav")/, langLinks(code, p) + '$1');
+  return html.replace(/(\n\s*<button class="menu-toggle")/, langLinks(code, p) + '$1');
 }
 
 function build() {
