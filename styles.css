@@ -199,8 +199,20 @@ a:hover { color: var(--deep-purple); }
   .lang-switch a[lang] { font-size: 13px; }
 }
 
-/* The menu folds away below 1100px: with the language buttons it no longer fits on one line. */
-@media (max-width: 1099px) {
+/* Narrower desktops (including "desktop site" on a phone, about 980px): tighten the menu so it still fits beside the logo. */
+@media (min-width: 960px) and (max-width: 1199px) {
+  .topbar { column-gap: 16px; }
+  .nav { column-gap: 14px; }
+  .nav a:not(.btn) { font-size: 15px; }
+  .nav .btn-sm { padding: 0 16px; }
+  .brand { font-size: 22px; gap: 10px; }
+  .brand img { width: 36px; height: 36px; }
+  .lang-switch { gap: 6px; }
+  .lang-switch a { padding: 0 8px; font-size: 14px; }
+}
+
+/* The menu folds away below 960px: with the language buttons it no longer fits on one line. */
+@media (max-width: 959px) {
   .js .menu-toggle { display: inline-flex; }
   .js .topbar { column-gap: 8px; }
   .js .lang-switch { order: 1; margin-left: auto; }
