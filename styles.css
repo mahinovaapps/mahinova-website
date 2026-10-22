@@ -1,6 +1,9 @@
 /* Fonts are served from this site (no Google Fonts round trip). Variable weights, Latin subset. */
 @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(assets/fonts/manrope.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: 'Sora'; font-style: normal; font-weight: 500 700; font-display: swap; src: url(assets/fonts/sora.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+/* Bengali and Hindi pages only: these fonts sit in the bn/hi font stacks, so English pages never download them. */
+@font-face { font-family: 'Noto Sans Bengali'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(assets/fonts/bengali.woff2) format('woff2'); unicode-range: U+0951-0952, U+0964-0965, U+0980-09FE, U+1CD0, U+1CD2, U+1CD5-1CD6, U+1CD8, U+1CE1, U+1CEA, U+1CED, U+1CF2, U+1CF5-1CF7, U+200C-200D, U+20B9, U+25CC, U+A8F1, U+11DF0-11DF1; }
+@font-face { font-family: 'Noto Sans Devanagari'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(assets/fonts/devanagari.woff2) format('woff2'); unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A; }
 
 :root {
   --deep-purple: #1E1038;
@@ -21,6 +24,8 @@
   --gutter: clamp(20px, 4vw, 48px);
   --radius: 20px;
 }
+:root[lang=bn] { --font-heading: 'Sora', 'Noto Sans Bengali', system-ui, sans-serif; --font-body: 'Manrope', 'Noto Sans Bengali', system-ui, sans-serif; }
+:root[lang=hi] { --font-heading: 'Sora', 'Noto Sans Devanagari', system-ui, sans-serif; --font-body: 'Manrope', 'Noto Sans Devanagari', system-ui, sans-serif; }
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -148,6 +153,8 @@ a:hover { color: var(--deep-purple); }
 }
 .nav a:not(.btn):hover { color: var(--white); }
 .nav a[aria-current="page"] { color: var(--white); border-bottom-color: var(--nova-gold); }
+.nav a.lang-link { font-size: 14px; }
+.nav a.lang-link + a.lang-link { margin-left: -12px; }
 
 .menu-toggle {
   display: none;
@@ -178,6 +185,7 @@ a:hover { color: var(--deep-purple); }
   .js .nav a:not(.btn) { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
   .js .nav a[aria-current="page"] { color: var(--nova-gold); }
   .js .nav .btn { margin-top: 12px; }
+  .js .nav a.lang-link { display: inline-flex; margin: 0; }
   .nav { flex-wrap: wrap; }
 }
 
