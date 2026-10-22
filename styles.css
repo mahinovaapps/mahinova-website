@@ -170,8 +170,33 @@ a:hover { color: var(--deep-purple); }
 }
 .menu-toggle svg { width: 24px; height: 24px; }
 
-@media (max-width: 860px) {
+.lang-mini { display: none; }
+.lang-mini a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 10px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--on-dark);
+  text-decoration: none;
+}
+.lang-mini a:hover { color: var(--white); background: rgba(255, 255, 255, 0.08); }
+@media (max-width: 360px) {
+  .brand { font-size: 20px; gap: 8px; }
+  .brand img { width: 34px; height: 34px; }
+  .lang-mini a { min-width: 40px; padding: 0 6px; }
+}
+
+/* The menu folds away below 1024px: with the language links it no longer fits on one line. */
+@media (max-width: 1023px) {
   .js .menu-toggle { display: inline-flex; }
+  .js .topbar { column-gap: 4px; }
+  .js .lang-mini { display: flex; margin-left: auto; }
+  .js .nav a.lang-link { display: none; }
   .topbar { flex-wrap: wrap; }
   .js .nav {
     display: none;
@@ -185,7 +210,6 @@ a:hover { color: var(--deep-purple); }
   .js .nav a:not(.btn) { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
   .js .nav a[aria-current="page"] { color: var(--nova-gold); }
   .js .nav .btn { margin-top: 12px; }
-  .js .nav a.lang-link { display: inline-flex; margin: 0; }
   .nav { flex-wrap: wrap; }
 }
 
@@ -212,6 +236,9 @@ a:hover { color: var(--deep-purple); }
   font-weight: 700;
 }
 .hero .eyebrow, .page-hero .eyebrow { color: var(--nova-gold); }
+.nocase { text-transform: none; }
+/* Bengali and Devanagari have no capitals, and wide tracking breaks up their joined letters. */
+:root[lang=bn] .eyebrow, :root[lang=hi] .eyebrow, :root[lang=bn] .footer h2, :root[lang=hi] .footer h2, :root[lang=bn] .service h3, :root[lang=hi] .service h3 { letter-spacing: 0.02em; }
 
 .hero h1 {
   margin: 16px 0 0;
@@ -244,8 +271,8 @@ a:hover { color: var(--deep-purple); }
   margin: 0 auto;
 }
 .hero-art svg { display: block; width: 100%; height: auto; }
-/* Phones: keep the decoration small so the next section shows sooner. */
-@media (max-width: 600px) { .hero-art { max-width: 190px; margin-top: 8px; } }
+/* Phones: the decoration only pushes the content down, so leave it out. */
+@media (max-width: 600px) { .hero-art { display: none; } }
 .orbit {
   transform-origin: 200px 200px;
   animation: orbit 24s linear infinite;
