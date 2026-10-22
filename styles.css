@@ -196,6 +196,7 @@ a:hover { color: var(--deep-purple); }
   .lang-switch { gap: 4px; }
   .lang-switch a { padding: 0 6px; font-size: 13px; }
   html.js .topbar { column-gap: 4px; }
+  .lang-switch a[lang] { font-size: 13px; }
 }
 
 /* The menu folds away below 1100px: with the language buttons it no longer fits on one line. */
