@@ -925,6 +925,9 @@ a:hover { color: var(--deep-purple); }
 @view-transition { navigation: auto; }
 .site-header { view-transition-name: header; padding-top: calc(16px + env(safe-area-inset-top)); }
 .tabbar { view-transition-name: tabbar; }
+/* The header and bottom bar swap instantly; only the page content fades, so the bars never ghost or slide. */
+::view-transition-group(header), ::view-transition-group(tabbar), ::view-transition-new(header), ::view-transition-new(tabbar) { animation: none; }
+::view-transition-old(header), ::view-transition-old(tabbar) { display: none; }
 @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
 html { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 760px) {
