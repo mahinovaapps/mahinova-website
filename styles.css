@@ -271,8 +271,22 @@ a:hover { color: var(--deep-purple); }
   margin: 0 auto;
 }
 .hero-art svg { display: block; width: 100%; height: auto; }
-/* Phones: the decoration only pushes the content down, so leave it out. */
-@media (max-width: 600px) { .hero-art { display: none; } }
+/* Phones: the orbit moves behind the text, peeking in from the top right,
+   so it stays part of the hero without pushing the content down. */
+@media (max-width: 600px) {
+  .hero { position: relative; }
+  .hero-copy { position: relative; z-index: 1; }
+  .hero-art {
+    position: absolute;
+    top: -120px;
+    right: -175px;
+    width: 340px;
+    max-width: none;
+    margin: 0;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
 .orbit {
   transform-origin: 200px 200px;
   animation: orbit 24s linear infinite;
