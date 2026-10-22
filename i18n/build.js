@@ -11,9 +11,9 @@ const ROOT = path.join(__dirname, '..');
 const SITE = 'https://mahinova.in/';
 const PAGES = ['index.html', 'services.html', 'products.html', 'restaurant.html', 'portfolio.html', 'about.html', 'contact.html'];
 const LANGS = {
-  en: { name: 'English', locale: 'en_IN', dir: '' },
-  bn: { name: 'বাংলা', locale: 'bn_IN', dir: 'bn/' },
-  hi: { name: 'हिन्दी', locale: 'hi_IN', dir: 'hi/' }
+  en: { name: 'English', locale: 'en_IN', dir: '', appDesc: 'Mobile apps, websites and software for small businesses across India.' },
+  bn: { name: 'বাংলা', locale: 'bn_IN', dir: 'bn/', appDesc: 'সারা ভারতের ছোট ব্যবসার জন্য মোবাইল অ্যাপ, ওয়েবসাইট আর সফটওয়্যার।' },
+  hi: { name: 'हिन्दी', locale: 'hi_IN', dir: 'hi/', appDesc: 'पूरे भारत के छोटे व्यवसायों के लिए मोबाइल ऐप, वेबसाइट और सॉफ़्टवेयर।' }
 };
 const INLINE = new Set(['strong', 'em', 'b', 'i', 'small', 'code', 'span', 'a', 'abbr', 'mark', 'sup', 'sub']);
 const VOID_INLINE = new Set(['br', 'wbr']);
@@ -154,7 +154,20 @@ function build() {
       Object.keys(LANGS).map((c) => '    <xhtml:link rel="alternate" hreflang="' + c + '" href="' + pageUrl(c, p) + '"/>\n').join('') +
       '    <xhtml:link rel="alternate" hreflang="x-default" href="' + pageUrl('en', p) + '"/>\n  </url>\n').join('')).join('') + '</urlset>\n');
   for (const [code, set] of Object.entries(missing)) console.log(code + ': ' + set.size + ' strings still in English:\n  ' + [...set].join('\n  '));
-  console.log('Built bn/ and hi/ (' + PAGES.length + ' pages each) and sitemap.xml');
+  // Installable app (PWA): one app, opening in the language it was installed from.
+  for (const [code, L] of Object.entries(LANGS)) {
+    fs.writeFileSync(path.join(ROOT, L.dir, 'manifest.webmanifest'), JSON.stringify({
+      id: '/', name: 'mahinova', short_name: 'mahinova', description: L.appDesc, lang: code,
+      start_url: '/' + L.dir, scope: '/', display: 'standalone', orientation: 'portrait',
+      background_color: '#1E1038', theme_color: '#1E1038',
+      icons: [
+        { src: '/assets/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+        { src: '/assets/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+        { src: '/assets/icon-maskable-192.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
+        { src: '/assets/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }]
+    }, null, 1) + '\n');
+  }
+  console.log('Built bn/ and hi/ (' + PAGES.length + ' pages each) sitemap.xml and the app manifests');
 }
 
 if (process.argv[2] === 'extract') extract(); else build();

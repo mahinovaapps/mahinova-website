@@ -1,5 +1,32 @@
 document.documentElement.classList.add('js');
 
+// Installable app: offline support, and on phones a bar that offers to install it
+// (Chrome, Edge and Samsung Internet). The bar can be closed for a week.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });
+}
+window.addEventListener('beforeinstallprompt', function (e) {
+  e.preventDefault();
+  var closed = 0;
+  try { closed = Number(localStorage.getItem('installClosed') || 0); } catch (err) { /* ignore */ }
+  if (!window.matchMedia('(max-width: 760px)').matches || Date.now() - closed < 7 * 864e5 || document.querySelector('.install-bar')) return;
+  var label = { bn: 'অ্যাপ ইনস্টল', hi: 'ऐप इंस्टॉल' }[document.documentElement.lang] || 'Install app';
+  var icon = document.querySelector('link[rel="apple-touch-icon"]').href.replace('icon-512', 'icon-192');
+  var bar = document.createElement('div');
+  bar.className = 'install-bar';
+  bar.innerHTML = '<img src="' + icon + '" alt="" width="40" height="40"><strong>mahinova</strong>' +
+    '<button type="button" class="install-go">' + label + '</button><button type="button" class="install-x" aria-label="Close">✕</button>';
+  bar.querySelector('.install-go').addEventListener('click', function () {
+    e.prompt();
+    e.userChoice.then(function () { bar.remove(); });
+  });
+  bar.querySelector('.install-x').addEventListener('click', function () {
+    try { localStorage.setItem('installClosed', String(Date.now())); } catch (err) { /* ignore */ }
+    bar.remove();
+  });
+  document.body.appendChild(bar);
+});
+
 document.addEventListener('DOMContentLoaded', function () {
   // Mobile menu
   var toggle = document.querySelector('.menu-toggle');

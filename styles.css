@@ -917,3 +917,25 @@ a:hover { color: var(--deep-purple); }
 .case-note { margin: 16px 0 0; font-size: 14px; color: var(--plum-slate); }
 @media (max-width: 760px) { .case-shots { grid-template-columns: 1fr; padding: 20px; } }
 .card .checklist { margin-top: 16px; }
+
+/* App feel: page changes fade like an app, and the header and bottom bar stay put. */
+@view-transition { navigation: auto; }
+.site-header { view-transition-name: header; padding-top: calc(16px + env(safe-area-inset-top)); }
+.tabbar { view-transition-name: tabbar; }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+html { -webkit-tap-highlight-color: transparent; }
+@media (max-width: 760px) {
+  .site-header { padding-top: calc(12px + env(safe-area-inset-top)); padding-bottom: 12px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2); }
+  .card-link:active, .btn:active, .tabbar a:active { transform: scale(0.96); transition: transform 0.08s; }
+  .install-bar {
+    position: fixed; left: 12px; right: 12px; bottom: calc(76px + env(safe-area-inset-bottom)); z-index: 55;
+    display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 12px;
+    background: var(--white); color: var(--deep-purple); border-radius: 16px; box-shadow: 0 10px 30px rgba(30, 16, 56, 0.3);
+  }
+  .install-bar img { width: 40px; height: 40px; border-radius: 10px; }
+  .install-bar strong { flex: 1; font-family: var(--font-heading); font-size: 16px; }
+  .install-go { border: 0; border-radius: 999px; background: var(--nova-gold); color: var(--deep-purple); font: inherit; font-weight: 700; font-size: 14px; padding: 8px 14px; cursor: pointer; }
+  .install-x { width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--lilac-mist); color: var(--plum-slate); font-size: 16px; cursor: pointer; }
+}
+@media print { .install-bar, .tabbar { display: none !important; } }
+

@@ -1,0 +1,39 @@
+{
+ "id": "/",
+ "name": "mahinova",
+ "short_name": "mahinova",
+ "description": "पूरे भारत के छोटे व्यवसायों के लिए मोबाइल ऐप, वेबसाइट और सॉफ़्टवेयर।",
+ "lang": "hi",
+ "start_url": "/hi/",
+ "scope": "/",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#1E1038",
+ "theme_color": "#1E1038",
+ "icons": [
+  {
+   "src": "/assets/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "/assets/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "/assets/icon-maskable-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "maskable"
+  },
+  {
+   "src": "/assets/icon-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}
