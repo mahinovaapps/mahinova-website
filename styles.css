@@ -153,8 +153,6 @@ a:hover { color: var(--deep-purple); }
 }
 .nav a:not(.btn):hover { color: var(--white); }
 .nav a[aria-current="page"] { color: var(--white); border-bottom-color: var(--nova-gold); }
-.nav a.lang-link { font-size: 14px; }
-.nav a.lang-link + a.lang-link { margin-left: -12px; }
 
 .menu-toggle {
   display: none;
@@ -170,33 +168,43 @@ a:hover { color: var(--deep-purple); }
 }
 .menu-toggle svg { width: 24px; height: 24px; }
 
-.lang-mini { display: none; }
-.lang-mini a {
+.lang-switch { display: flex; gap: 8px; order: 3; }
+.lang-switch a {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0 10px;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--outline);
   border-radius: 12px;
   font-size: 15px;
-  font-weight: 600;
-  color: var(--on-dark);
+  color: var(--white);
   text-decoration: none;
 }
-.lang-mini a:hover { color: var(--white); background: rgba(255, 255, 255, 0.08); }
-@media (max-width: 360px) {
+.lang-switch a:hover { background: rgba(255, 255, 255, 0.08); }
+/* Bengali and Hindi script looks smaller than Latin at the same size. */
+.lang-switch a[lang=bn], .lang-switch a[lang=hi] { font-size: 1.1em; }
+.nav { order: 2; }
+@media (max-width: 400px) {
   .brand { font-size: 20px; gap: 8px; }
   .brand img { width: 34px; height: 34px; }
-  .lang-mini a { min-width: 40px; padding: 0 6px; }
+  .lang-switch { gap: 6px; }
+  .lang-switch a { padding: 0 8px; font-size: 14px; }
+}
+@media (max-width: 350px) {
+  .brand { font-size: 18px; gap: 6px; }
+  .brand img { width: 30px; height: 30px; }
+  .lang-switch { gap: 4px; }
+  .lang-switch a { padding: 0 6px; font-size: 13px; }
+  html.js .topbar { column-gap: 4px; }
 }
 
-/* The menu folds away below 1024px: with the language links it no longer fits on one line. */
-@media (max-width: 1023px) {
+/* The menu folds away below 1100px: with the language buttons it no longer fits on one line. */
+@media (max-width: 1099px) {
   .js .menu-toggle { display: inline-flex; }
-  .js .topbar { column-gap: 4px; }
-  .js .lang-mini { display: flex; margin-left: auto; }
-  .js .nav a.lang-link { display: none; }
+  .js .topbar { column-gap: 8px; }
+  .js .lang-switch { order: 1; margin-left: auto; }
+  .js .menu-toggle { order: 2; }
+  .js .nav { order: 4; }
   .topbar { flex-wrap: wrap; }
   .js .nav {
     display: none;

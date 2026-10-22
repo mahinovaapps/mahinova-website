@@ -117,25 +117,16 @@ function head(code, p) {
     '  <link rel="alternate" hreflang="x-default" href="' + pageUrl('en', p) + '">\n  <!-- /i18n:hreflang -->';
 }
 
-const SHORT = { en: 'EN', bn: 'বাং', hi: 'हिं' };
-
-// Links to the same page in the other languages. The short form sits in the
-// top bar on phones, where the menu is folded away.
-function langLinks(code, p, short) {
+// Links to the same page in the other languages, shown as buttons in the top bar.
+function langLinks(code, p) {
   const up = code === 'en' ? '' : '../';
-  const links = Object.keys(LANGS).filter((c) => c !== code).map((c) =>
-    '<a class="lang-link" href="' + up + LANGS[c].dir + (p === 'index.html' ? (LANGS[c].dir ? '' : 'index.html') : p) + '" hreflang="' + c + '" lang="' + c + '"' +
-    '>' + (short ? SHORT[c] : LANGS[c].name) + '</a>').join('');
-  return short
-    ? '\n      <!-- i18n:lang --><div class="lang-mini">' + links + '</div><!-- /i18n:lang -->'
-    : '\n          <!-- i18n:lang -->' + links + '<!-- /i18n:lang -->';
+  return '\n      <!-- i18n:lang --><div class="lang-switch">' + Object.keys(LANGS).filter((c) => c !== code).map((c) =>
+    '<a href="' + up + LANGS[c].dir + (p === 'index.html' ? (LANGS[c].dir ? '' : 'index.html') : p) + '" hreflang="' + c + '" lang="' + c + '">' + LANGS[c].name + '</a>').join('') + '</div><!-- /i18n:lang -->';
 }
 
 function addI18n(html, code, p) {
   html = html.replace(/(<link rel="canonical"[^>]*>)/, '$1' + head(code, p));
-  // Language links go at the end of the main menu.
-  return html.replace(/(<nav class="nav" id="site-nav"[^>]*>[\s\S]*?)(\n\s*<\/nav>)/, (a, b, c) => b + langLinks(code, p) + c)
-    .replace(/(\n\s*<button class="menu-toggle")/, langLinks(code, p, true) + '$1');
+  return html.replace(/(\n\s*<button class="menu-toggle")/, langLinks(code, p) + '$1');
 }
 
 function build() {
