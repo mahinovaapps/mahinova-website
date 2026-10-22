@@ -1,7 +1,7 @@
 // Service worker: lets the site open like an app and keeps visited pages readable offline.
 // It only handles GET requests to this site, so WhatsApp, the tools site and anything
 // else always go straight to the network. Change VERSION when assets change.
-const VERSION = '20261022';
+const VERSION = '20261022b';
 const CACHE = 'mahinova-' + VERSION;
 const HOMES = ['/', '/bn/', '/hi/'];
 
