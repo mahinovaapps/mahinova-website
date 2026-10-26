@@ -9,7 +9,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://mahinova.in/';
-const PAGES = ['index.html', 'services.html', 'website-design.html', 'nadia.html', 'products.html', 'restaurant.html', 'portfolio.html', 'about.html', 'contact.html'];
+const PAGES = ['index.html', 'services.html', 'website-design.html', 'nadia.html', 'murshidabad.html', 'products.html', 'restaurant.html', 'portfolio.html', 'about.html', 'contact.html'];
 const LANGS = {
   en: { name: 'English', locale: 'en_IN', dir: '', appDesc: 'Mobile apps, websites and software for small businesses across India.' },
   bn: { name: 'বাংলা', locale: 'bn_IN', dir: 'bn/', appDesc: 'সারা ভারতের ছোট ব্যবসার জন্য মোবাইল অ্যাপ, ওয়েবসাইট আর সফটওয়্যার।' },
