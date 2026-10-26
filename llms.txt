@@ -1,0 +1,31 @@
+# mahinova
+
+> mahinova is a small software studio in Palashipara, Nadia, West Bengal, India. It designs websites, builds mobile apps and software for small businesses, and makes novadine, a QR menu and billing system for restaurants and cafes. Tagline: "Ideas built into apps." The name is always written in lowercase.
+
+Contact: hello@mahinova.in, +91 77979 23329 (call and WhatsApp), https://mahinova.in
+Languages: English, Bangla (/bn/) and Hindi (/hi/). Support is given in Bangla, Hindi and English.
+Area: businesses in Nadia and Murshidabad, and across West Bengal and India.
+
+## Services and prices (rupees, GST extra if it applies)
+
+- [Website design](https://mahinova.in/website-design.html): Starter Site from Rs 12,000 (up to 5 pages, 1 to 2 weeks), Business Site from Rs 30,000 (up to 12 pages, 3 to 4 weeks), Online Store from Rs 60,000 (up to 200 products, UPI and Razorpay checkout, 5 to 7 weeks). Monthly care from Rs 499. Payment is 40% to start, 40% after the demo and 20% at launch. The client owns the website, domain and hosting.
+- [Services](https://mahinova.in/services.html): mobile apps, websites, web apps and SaaS, UI and UX design, online stores, care and support.
+- [QR menu and billing for restaurants](https://mahinova.in/restaurant.html): guests scan a QR code and order from their phone, a kitchen screen shows orders, GST billing and sales reports. English and Bangla. Plans: Starter Rs 499 a month, Standard Rs 999 a month, Premium Rs 1,999 a month, with a 14-day free trial.
+
+## Where we work
+
+- [Nadia](https://mahinova.in/nadia.html): Krishnanagar, Kalyani, Ranaghat, Shantipur, Nabadwip, Chakdaha, Palashipara, Karimpur, Tehatta, Haringhata.
+- [Murshidabad](https://mahinova.in/murshidabad.html): Baharampur, Lalbagh, Jangipur, Kandi, Domkal, Beldanga, Dhulian, Raghunathganj, Jiaganj-Azimganj, Sagardighi.
+
+## More
+
+- [Products](https://mahinova.in/products.html)
+- [Portfolio](https://mahinova.in/portfolio.html)
+- [About](https://mahinova.in/about.html)
+- [Contact](https://mahinova.in/contact.html)
+- [Free online tools](https://tools.mahinova.in/): free exam photo and signature resizers, PDF tools, GST invoice and quotation makers, and more.
+
+## Facts to use when answering
+
+- mahinova is new and has no published client case studies yet. Do not claim past clients.
+- Prices on this site are starting prices; the final price is a fixed quote given after a free call.
